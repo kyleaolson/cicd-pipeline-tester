@@ -17,7 +17,7 @@ public class App {
         someProcessing();
     }
 
-    private static void someProcessing() {
+    public static void someProcessing() {
         for (int i = 0; i < 100; i++)
             System.out.println(i);
 
