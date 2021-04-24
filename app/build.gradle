@@ -2,7 +2,6 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
     id 'jacoco'
-    id "org.sonarqube" version "3.1.1"
 }
 
 repositories {
@@ -21,17 +20,20 @@ dependencies {
     implementation 'com.google.guava:guava:30.0-jre'
 }
 
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.8
+            }
+        }
+    }
+}
+check.dependsOn jacocoTestCoverageVerification
+
 jacocoTestReport {
     reports {
         xml.enabled true
-    }
-}
-
-sonarqube {
-    properties {
-        property 'sonar.host.url', 'https://sonarcloud.io'
-        property 'sonar.organization', 'kyleaolson'
-        property 'sonar.projectKey', 'kyleaolson_cicd-pipeline-tester'
     }
 }
 

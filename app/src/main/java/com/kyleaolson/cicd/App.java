@@ -3,6 +3,8 @@
  */
 package com.kyleaolson.cicd;
 
+import org.checkerframework.common.value.qual.IntRange;
+
 public class App {
     private final static String NOT_USED = "";
 
@@ -12,5 +14,14 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        someProcessing("b");
+    }
+
+    public static void someProcessing(String input) {
+        for (int i = 0; i < 100; i++)
+            System.out.println(i);
+
+        if ("a".equals(input))
+            System.out.println("Oh shit");
     }
 }
