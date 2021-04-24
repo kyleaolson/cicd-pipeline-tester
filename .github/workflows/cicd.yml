@@ -26,14 +26,4 @@ jobs:
       run: chmod +x gradlew
 
     - name: Build and analyze
-      run: ./gradlew build jacocoTestReport sonarqube --info
-      env:
-        # Needed to get some information about the pull request, if any
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # SonarCloud access token should be generated from https://sonarcloud.io/account/security/
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-    - name: Get the Coverage info
-      run: |
-        echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
-        echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
+      run: ./gradlew build jacocoTestReport
