@@ -14,14 +14,14 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-        someProcessing();
+        someProcessing("b");
     }
 
-    public static void someProcessing() {
+    public static void someProcessing(String input) {
         for (int i = 0; i < 100; i++)
             System.out.println(i);
 
-        if ("a".equals("b"))
+        if ("a".equals(input))
             System.out.println("Oh shit");
     }
 }

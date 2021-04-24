@@ -13,6 +13,6 @@ class AppTest {
     }
 
     @Test void appSomeProcessing() {
-        assertDoesNotThrow(() -> App.someProcessing());
+        assertDoesNotThrow(() -> App.someProcessing("a"));
     }
 }
