@@ -21,6 +21,17 @@ dependencies {
     implementation 'com.google.guava:guava:30.0-jre'
 }
 
+//jacocoTestCoverageVerification {
+//    violationRules {
+//        rule {
+//            limit {
+//                minimum = 0.8
+//            }
+//        }
+//    }
+//}
+//check.dependsOn jacocoTestCoverageVerification
+
 jacocoTestReport {
     reports {
         xml.enabled true
@@ -34,6 +45,7 @@ sonarqube {
         property 'sonar.projectKey', 'kyleaolson_cicd-pipeline-tester'
     }
 }
+
 
 application {
     // Define the main class for the application.
