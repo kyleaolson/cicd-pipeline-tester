@@ -21,11 +21,32 @@ dependencies {
     implementation 'com.google.guava:guava:30.0-jre'
 }
 
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.8
+            }
+        }
+    }
+}
+
 jacocoTestReport {
     reports {
         xml.enabled true
+        html {
+            enabled true
+            destination file("$buildDir/reports/jacoco")
+        }
     }
+    executionData(test)
 }
+
+tasks.build.dependsOn(jacocoTestReport)
+
+
+// to run coverage verification during the build (and fail when appropriate)
+check.dependsOn jacocoTestCoverageVerification
 
 sonarqube {
     properties {
